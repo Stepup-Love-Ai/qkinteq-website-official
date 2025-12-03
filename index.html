@@ -1,0 +1,765 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8" />
+    <title>Qkinteq | AI Companion Studio</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <style>
+        /* ====== 全局样式 ====== */
+        :root {
+            --primary: #7c3aed;
+            --primary-soft: #ede9fe;
+            --bg: #f9fafb;
+            --text-main: #111827;
+            --text-muted: #6b7280;
+            --card-bg: #ffffff;
+            --border: #e5e7eb;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text",
+                "Helvetica Neue", Arial, sans-serif;
+            background: radial-gradient(circle at top, #eef2ff, #f9fafb 45%);
+            color: var(--text-main);
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        img {
+            max-width: 100%;
+            display: block;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1080px;
+            margin: 0 auto;
+            padding: 0 16px;
+        }
+
+        /* ====== 顶部导航 ====== */
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 50;
+            background: rgba(249, 250, 251, 0.88);
+            backdrop-filter: blur(16px);
+            border-bottom: 1px solid rgba(229, 231, 235, 0.8);
+        }
+
+        .nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 12px 0;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 700;
+            font-size: 18px;
+        }
+
+        .logo-mark {
+            width: 28px;
+            height: 28px;
+            border-radius: 999px;
+            background: linear-gradient(135deg, #6366f1, #ec4899);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 20px;
+            font-size: 14px;
+        }
+
+        .nav-links a {
+            color: var(--text-muted);
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        .nav-cta {
+            font-size: 14px;
+            padding: 8px 14px;
+            border-radius: 999px;
+            border: 1px solid var(--primary);
+            color: var(--primary);
+            background: white;
+        }
+
+        .nav-cta:hover {
+            background: var(--primary-soft);
+        }
+
+        /* ====== Hero 区 ====== */
+        .hero {
+            padding: 56px 0 40px;
+        }
+
+        .hero-inner {
+            display: grid;
+            grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+            gap: 40px;
+            align-items: center;
+        }
+
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 4px 10px;
+            border-radius: 999px;
+            font-size: 12px;
+            background: rgba(129, 140, 248, 0.08);
+            color: #4f46e5;
+            margin-bottom: 14px;
+        }
+
+        .badge-dot {
+            width: 6px;
+            height: 6px;
+            border-radius: 999px;
+            background: #4f46e5;
+        }
+
+        .hero-title {
+            font-size: 34px;
+            line-height: 1.25;
+            margin-bottom: 14px;
+        }
+
+        .hero-subtitle {
+            font-size: 16px;
+            color: var(--text-muted);
+            margin-bottom: 20px;
+        }
+
+        .hero-subtitle span {
+            font-weight: 500;
+            color: #4f46e5;
+        }
+
+        .hero-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-bottom: 18px;
+        }
+
+        .btn-primary {
+            padding: 10px 18px;
+            font-size: 14px;
+            border-radius: 999px;
+            border: none;
+            background: linear-gradient(135deg, #4f46e5, #ec4899);
+            color: #fff;
+            cursor: pointer;
+        }
+
+        .btn-primary:hover {
+            opacity: 0.92;
+        }
+
+        .btn-ghost {
+            padding: 10px 16px;
+            font-size: 14px;
+            border-radius: 999px;
+            border: 1px solid var(--border);
+            background: white;
+            color: var(--text-muted);
+            cursor: pointer;
+        }
+
+        .btn-ghost:hover {
+            border-color: #c7d2fe;
+            color: #4f46e5;
+        }
+
+        .hero-meta {
+            font-size: 12px;
+            color: var(--text-muted);
+        }
+
+        .hero-meta b {
+            color: var(--text-main);
+        }
+
+        /* Hero 卡片（右侧“应用预览”） */
+        .hero-card {
+            background: rgba(255, 255, 255, 0.96);
+            border-radius: 24px;
+            padding: 20px 18px;
+            border: 1px solid rgba(229, 231, 235, 0.9);
+            box-shadow: 0 22px 45px rgba(15, 23, 42, 0.08);
+        }
+
+        .hero-card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 14px;
+        }
+
+        .hero-avatar {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .hero-avatar-circle {
+            width: 40px;
+            height: 40px;
+            border-radius: 999px;
+            background: radial-gradient(circle at 30% 20%, #f9a8d4, #6366f1);
+        }
+
+        .hero-avatar-text {
+            font-size: 13px;
+        }
+
+        .hero-avatar-text .name {
+            font-weight: 600;
+        }
+
+        .hero-avatar-text .role {
+            color: var(--text-muted);
+        }
+
+        .hero-pill {
+            font-size: 11px;
+            padding: 6px 10px;
+            border-radius: 999px;
+            background: var(--primary-soft);
+            color: #4f46e5;
+        }
+
+        .hero-chat {
+            margin-top: 10px;
+            display: grid;
+            gap: 10px;
+            font-size: 13px;
+        }
+
+        .chat-bubble {
+            max-width: 95%;
+            padding: 10px 12px;
+            border-radius: 14px;
+        }
+
+        .chat-user {
+            justify-self: flex-end;
+            background: #eef2ff;
+        }
+
+        .chat-ai {
+            justify-self: flex-start;
+            background: #f9fafb;
+            border: 1px solid #e5e7eb;
+        }
+
+        .chat-label {
+            font-size: 11px;
+            color: var(--text-muted);
+            margin-bottom: 2px;
+        }
+
+        /* ====== 功能区 ====== */
+        section {
+            padding: 40px 0;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 26px;
+        }
+
+        .section-kicker {
+            font-size: 12px;
+            color: #4f46e5;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            margin-bottom: 4px;
+        }
+
+        .section-title {
+            font-size: 22px;
+            margin-bottom: 6px;
+        }
+
+        .section-subtitle {
+            font-size: 14px;
+            color: var(--text-muted);
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 18px;
+        }
+
+        .feature-card {
+            background: var(--card-bg);
+            border-radius: 16px;
+            padding: 16px;
+            border: 1px solid var(--border);
+        }
+
+        .feature-title {
+            font-size: 15px;
+            margin-bottom: 6px;
+        }
+
+        .feature-desc {
+            font-size: 13px;
+            color: var(--text-muted);
+            margin-bottom: 8px;
+        }
+
+        .feature-tag {
+            display: inline-block;
+            font-size: 11px;
+            padding: 3px 8px;
+            border-radius: 999px;
+            background: var(--primary-soft);
+            color: #4f46e5;
+        }
+
+        /* ====== 产品模块 ====== */
+        .product-layout {
+            display: grid;
+            grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+            gap: 26px;
+            align-items: center;
+        }
+
+        .product-list {
+            list-style: none;
+            display: grid;
+            gap: 10px;
+            font-size: 13px;
+            color: var(--text-muted);
+        }
+
+        .product-list li::before {
+            content: "• ";
+            color: #4f46e5;
+        }
+
+        .product-card {
+            background: #111827;
+            color: #e5e7eb;
+            border-radius: 18px;
+            padding: 16px 18px;
+        }
+
+        .product-card h3 {
+            font-size: 15px;
+            margin-bottom: 4px;
+        }
+
+        .product-card p {
+            font-size: 13px;
+            color: #9ca3af;
+        }
+
+        /* ====== 团队区 ====== */
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 18px;
+        }
+
+        .team-card {
+            background: var(--card-bg);
+            border-radius: 16px;
+            padding: 14px;
+            border: 1px solid var(--border);
+            text-align: center;
+        }
+
+        .team-avatar {
+            width: 52px;
+            height: 52px;
+            margin: 0 auto 8px;
+            border-radius: 999px;
+            background: radial-gradient(circle at 30% 20%, #f97316, #6366f1);
+        }
+
+        .team-name {
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        .team-role {
+            font-size: 12px;
+            color: var(--text-muted);
+            margin-bottom: 6px;
+        }
+
+        .team-tagline {
+            font-size: 12px;
+            color: var(--text-muted);
+        }
+
+        /* ====== 联系我们 ====== */
+        .contact-card {
+            background: var(--card-bg);
+            border-radius: 18px;
+            padding: 18px;
+            border: 1px solid var(--border);
+            max-width: 640px;
+            margin: 0 auto;
+        }
+
+        .contact-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            font-size: 13px;
+            margin-bottom: 10px;
+        }
+
+        .contact-label {
+            width: 90px;
+            color: var(--text-muted);
+        }
+
+        .contact-value {
+            flex: 1;
+        }
+
+        .email-link {
+            color: #4f46e5;
+        }
+
+        /* ====== 页脚 ====== */
+        footer {
+            border-top: 1px solid var(--border);
+            padding: 18px 0 26px;
+            font-size: 12px;
+            color: var(--text-muted);
+        }
+
+        .footer-inner {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 12px;
+        }
+
+        .footer-links a {
+            color: var(--text-muted);
+        }
+
+        .footer-links a:hover {
+            color: #4f46e5;
+        }
+
+        /* ====== 响应式 ====== */
+        @media (max-width: 768px) {
+            .hero-inner,
+            .product-layout {
+                grid-template-columns: minmax(0, 1fr);
+            }
+
+            .hero {
+                padding-top: 32px;
+            }
+
+            .hero-title {
+                font-size: 26px;
+            }
+
+            .features-grid,
+            .team-grid {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+        }
+
+        @media (max-width: 540px) {
+            .features-grid,
+            .team-grid {
+                grid-template-columns: minmax(0, 1fr);
+            }
+
+            .nav-links {
+                display: none; /* 简单点：小屏隐藏导航链接 */
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- ====== 顶部导航 ====== -->
+    <header>
+        <div class="container">
+            <nav class="nav">
+                <div class="logo">
+                    <div class="logo-mark"></div>
+                    <span>Qkinteq</span>
+                </div>
+                <div class="nav-links">
+                    <a href="#product">产品</a>
+                    <a href="#features">功能亮点</a>
+                    <a href="#team">团队</a>
+                    <a href="#contact">联系</a>
+                </div>
+                <a href="#contact" class="nav-cta">加入内测</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- ====== Hero ====== -->
+    <main>
+        <section class="hero" id="top">
+            <div class="container hero-inner">
+                <div>
+                    <div class="badge">
+                        <span class="badge-dot"></span>
+                        <span>AI Companion Studio · 早期项目</span>
+                    </div>
+                    <h1 class="hero-title">
+                        为每个人打造<br />
+                        <span style="color:#4f46e5;">可定制的 AI 陪伴与规划系统</span>
+                    </h1>
+                    <p class="hero-subtitle">
+                        Qkinteq 专注于 <span>AI 伴侣 · 任务规划 · 情感陪伴</span> 的应用场景，
+                        从恋爱日程、学习规划到生活经营，用轻量产品快速验证、迭代。
+                    </p>
+                    <div class="hero-actions">
+                        <a href="#product">
+                            <button class="btn-primary">查看产品线概览</button>
+                        </a>
+                        <a href="#contact">
+                            <button class="btn-ghost">预约 Demo / 投资交流</button>
+                        </a>
+                    </div>
+                    <p class="hero-meta">
+                        <b>当前阶段：</b> Pre-seed / MVP 搭建中 · 欢迎技术合伙人 & 早期用户
+                    </p>
+                </div>
+
+                <!-- 右侧 “应用预览卡片” -->
+                <div class="hero-card">
+                    <div class="hero-card-header">
+                        <div class="hero-avatar">
+                            <div class="hero-avatar-circle"></div>
+                            <div class="hero-avatar-text">
+                                <div class="name">LuvTrace</div>
+                                <div class="role">AI 恋爱日程 · MVP</div>
+                            </div>
+                        </div>
+                        <div class="hero-pill">Private Alpha</div>
+                    </div>
+                    <div class="hero-chat">
+                        <div class="chat-bubble chat-user">
+                            <div class="chat-label">User · 今天</div>
+                            <div>
+                                周末想和对象约会，但最近好忙，帮我排一个不累又有仪式感的行程？
+                            </div>
+                        </div>
+                        <div class="chat-bubble chat-ai">
+                            <div class="chat-label">LuvTrace · AI 角色</div>
+                            <div>
+                                已根据你们的「低体力 + 喜欢安静 + 预算$80」生成 3 套方案：<br />
+                                · 电影 + 甜品店「慢聊天」<br />
+                                · 公园小野餐 + 夜间散步<br />
+                                · 在家料理日 + 惊喜小礼物清单<br />
+                                需要我同步生成备忘、支出表和提醒吗？
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ====== 产品总览 ====== -->
+        <section id="product">
+            <div class="container">
+                <div class="section-header">
+                    <div class="section-kicker">Product Line</div>
+                    <h2 class="section-title">我们在做的几类 AI 体验</h2>
+                    <p class="section-subtitle">
+                        以小而精的 MVP 验证真实需求，再逐步扩展功能与商业模式。
+                    </p>
+                </div>
+
+                <div class="product-layout">
+                    <div>
+                        <h3 style="font-size:16px; margin-bottom:6px;">
+                            当前重点：LuvTrace · 恋爱规划 & 陪伴
+                        </h3>
+                        <ul class="product-list">
+                            <li>基于角色设定的 AI 恋爱伙伴（人设、说话方式可定制）</li>
+                            <li>自动生成恋爱日程：纪念日、惊喜、约会方案、礼物清单</li>
+                            <li>把“要做的事”变成“故事线”与“任务链”，降低执行阻力</li>
+                            <li>结合日历 / To-do 工具，形成真正可落地的计划</li>
+                            <li>后续预留品牌联动与线下消费接入入口</li>
+                        </ul>
+                    </div>
+
+                    <div class="product-card">
+                        <h3>LuvTrace — AI恋爱日程</h3>
+                        <p>
+                            面向：恋爱中 & 想提升互动感的用户<br />
+                            形态：Web / 小程序 MVP + 二次元角色形象<br />
+                            收费思路：订阅 + 人设/皮肤/剧情包 + 品牌合作
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ====== 功能亮点 ====== -->
+        <section id="features">
+            <div class="container">
+                <div class="section-header">
+                    <div class="section-kicker">Key Features</div>
+                    <h2 class="section-title">为什么从这里切入 AI 伴侣</h2>
+                    <p class="section-subtitle">
+                        把复杂的大模型能力，包成具体清晰的使用场景，而不是“什么都能聊一点”的工具。
+                    </p>
+                </div>
+
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <div class="feature-title">角色 & 人设系统</div>
+                        <p class="feature-desc">
+                            支持半定制 AI 角色：性格、说话风格、关系类型（恋人/教练/搭子）可配置，让体验更有“粘性”。
+                        </p>
+                        <span class="feature-tag">AI Persona</span>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-title">计划落地而不是“只会聊天”</div>
+                        <p class="feature-desc">
+                            把对话中的想法结构化成日程、任务和提醒，兼顾“聊天陪伴”和“实际执行”。
+                        </p>
+                        <span class="feature-tag">Planning Engine</span>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-title">轻量 MVP · 快速迭代</div>
+                        <p class="feature-desc">
+                            采用 HTML + 前端为主的轻量架构，通过 Netlify / Vercel 快速上线验证，缩短试错周期。
+                        </p>
+                        <span class="feature-tag">MVP First</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ====== 团队区（占位，可以自己填） ====== -->
+        <section id="team">
+            <div class="container">
+                <div class="section-header">
+                    <div class="section-kicker">Team</div>
+                    <h2 class="section-title">一个早期、实干型的小团队</h2>
+                    <p class="section-subtitle">
+                        目前处于非常早期阶段，欢迎技术合伙人、前端 / 全栈、内容与运营同伴加入。
+                    </p>
+                </div>
+
+                <div class="team-grid">
+                    <div class="team-card">
+                        <div class="team-avatar"></div>
+                        <div class="team-name">Founder / PM</div>
+                        <div class="team-role">产品方向 & 商业化探索</div>
+                        <p class="team-tagline">
+                            负责产品方向、用研、融资沟通与整体节奏。目标是用一个个 MVP 找到真正的 Product-Market Fit。
+                        </p>
+                    </div>
+                    <div class="team-card">
+                        <div class="team-avatar" style="background:radial-gradient(circle at 30% 20%, #facc15, #4f46e5);"></div>
+                        <div class="team-name">Tech Collaborators</div>
+                        <div class="team-role">前端 / 全栈 / AI 工程</div>
+                        <p class="team-tagline">
+                            欢迎熟悉 React / Next.js / Python / LLM 应用落地的伙伴，一起把想法变成真实用户在用的东西。
+                        </p>
+                    </div>
+                    <div class="team-card">
+                        <div class="team-avatar" style="background:radial-gradient(circle at 30% 20%, #f97316, #ec4899);"></div>
+                        <div class="team-name">Content & Growth</div>
+                        <div class="team-role">内容 / 社区 / 运营</div>
+                        <p class="team-tagline">
+                            负责用户调研、社区搭建、小红书 / LinkedIn 内容，以及玩法设计与故事包装。
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ====== 联系我们 ====== -->
+        <section id="contact">
+            <div class="container">
+                <div class="section-header">
+                    <div class="section-kicker">Contact</div>
+                    <h2 class="section-title">合作 · 内测 · 投资交流</h2>
+                    <p class="section-subtitle">
+                        如果对 AI 伴侣、情感场景、学习规划、或相关商业模式感兴趣，欢迎聊聊。
+                    </p>
+                </div>
+
+                <div class="contact-card">
+                    <div class="contact-row">
+                        <div class="contact-label">邮箱</div>
+                        <div class="contact-value">
+                            <a class="email-link" href="mailto:hello@qkinteq.com">hello@qkinteq.com</a>
+                            <span style="color:var(--text-muted); font-size:12px;">（可替换为你的公司邮箱）</span>
+                        </div>
+                    </div>
+                    <div class="contact-row">
+                        <div class="contact-label">场景</div>
+                        <div class="contact-value">
+                            · 技术合伙人 / 顾问<br />
+                            · 种子轮 / Pre-seed 沟通<br />
+                            · 品牌 / IP 联名（恋爱、生活方式、线下消费场景）
+                        </div>
+                    </div>
+                    <div class="contact-row">
+                        <div class="contact-label">当前进度</div>
+                        <div class="contact-value">
+                            · 核心产品方向已确定<br />
+                            · Web 端 MVP 设计中 · 正在组建技术团队<br />
+                            · 可提供简单 Demo 以及产品文档交流
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- ====== 页脚 ====== -->
+    <footer>
+        <div class="container footer-inner">
+            <div>© <span id="year"></span> Qkinteq. All rights reserved.</div>
+            <div class="footer-links">
+                <a href="#top">回到顶部</a>
+                <a href="#product">产品</a>
+                <a href="#contact">联系</a>
+            </div>
+        </div>
+        <script>
+            // 自动填年份
+            document.getElementById("year").textContent = new Date().getFullYear();
+        </script>
+    </footer>
+</body>
+</html>
