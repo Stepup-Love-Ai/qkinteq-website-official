@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8" />
+    <title>Qkinteq | 联系我们 Contact</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+<header>
+    <div class="container">
+        <nav class="nav">
+            <div class="logo">
+                <div class="mini-avatar">
+                    <img src="img.jpeg" class="avatar-img" />
+                </div>
+                <span>Qkinteq</span>
+            </div>
+            <div class="nav-links">
+                <a href="index.html">首页</a>
+                <a href="product.html">产品</a>
+                <a href="feature.html">功能亮点</a>
+                <a href="contact.html">联系</a>
+            </div>
+            <a href="contact.html" class="nav-cta">加入内测</a>
+        </nav>
+    </div>
+</header>
+
+<main>
+
+<section id="contact">
+    <div class="container">
+
+        <!-- 标题 -->
+        <div class="section-header">
+            <div class="section-kicker">Contact</div>
+            <h2 class="section-title">合作 · 内测 · 投资交流</h2>
+            <p class="section-subtitle">
+                如果你对 AI 伴侣、角色系统、生活规划、或相关商业模式感兴趣，欢迎与我们取得联系。
+            </p>
+        </div>
+
+        <div class="section-divider"></div>
+
+        <!-- ====== 左右布局：联系方式 + 说明 ====== -->
+        <div class="product-layout">
+
+            <!-- 左侧：联系方式（使用 glass-card） -->
+            <div class="glass-card">
+                <h3 style="margin-bottom:10px;">联系方式</h3>
+
+                <div class="contact-row">
+                    <div class="contact-label">邮箱</div>
+                    <div class="contact-value">
+                        <a class="email-link" href="mailto:hello@qkinteq.com">hello@qkinteq.com</a>
+                    </div>
+                </div>
+
+                <div class="contact-row" style="margin-top:12px;">
+                    <div class="contact-label">合作场景</div>
+                    <div class="contact-value">
+                        · 技术合伙人 / 顾问<br />
+                        · 种子轮 / Pre-seed 沟通<br />
+                        · 品牌合作 / IP 联名
+                    </div>
+                </div>
+
+                <div class="contact-row" style="margin-top:12px;">
+                    <div class="contact-label">当前阶段</div>
+                    <div class="contact-value">
+                        · 产品方向已确定<br />
+                        · Web 端 MVP 研发中<br />
+                        · 可提供 Demo 与核心文档交流
+                    </div>
+                </div>
+            </div>
+
+            <!-- 右侧：品牌说明（用于官网） -->
+            <div class="glass-card">
+                <h3 style="margin-bottom:10px;">关于我们</h3>
+                <p style="font-size:14px; color:var(--text-muted);">
+                    Qkinteq 专注于「AI 伴侣 + 生活规划」方向，探索基于角色系统的长期陪伴体验。
+                    我们希望搭建一个既温度又实用、能够长期创造价值的 AI 互动生态。
+                </p>
+
+                <p style="font-size:14px; color:var(--text-muted); margin-top:14px;">
+                    我们欢迎对该方向感兴趣的开发者、内容创作者、品牌方与投资伙伴，一同推动下一代
+                    AI 互动体验的发展。
+                </p>
+            </div>
+
+        </div>
+
+        <!-- ====== 底部 CTA（加入内测） ====== -->
+        <div style="text-align:center; margin-top:60px;">
+            <div class="gradient-tag" style="margin-bottom:12px;">Join Us</div>
+            <h3 style="margin-bottom:12px;">加入内测 · 获取最新体验</h3>
+            <p style="font-size:14px; color:var(--text-muted); margin-bottom:20px;">
+                我们正在邀请首批用户体验 LuvLuv Daily 的 AI 伴侣与规划系统，并收集反馈用于快速迭代。
+            </p>
+
+            <a href="mailto:hello@qkinteq.com">
+                <button class="btn-primary">申请内测资格</button>
+            </a>
+        </div>
+
+    </div>
+</section>
+
+</main>
+
+<footer class="footer">
+    <div class="container footer-inner">
+
+        <div class="footer-top">
+            <div class="footer-brand">
+                <div class="mini-avatar">
+                    <img src="img.jpeg" class="avatar-img" />
+                </div>
+                <span class="footer-logo-text">Qkinteq</span>
+            </div>
+
+            <div class="footer-links">
+                <a href="index.html">首页</a>
+                <a href="product.html">产品</a>
+                <a href="feature.html">功能亮点</a>
+                <a href="contact.html">联系</a>
+            </div>
+        </div>
+
+        <div class="footer-divider"></div>
+
+        <div class="footer-bottom">
+            <div>© <span id="year"></span> Qkinteq. All rights reserved.</div>
+            <div class="footer-meta">AI Companion Studio · Pre-seed 项目</div>
+        </div>
+
+    </div>
+
+    <script>
+        document.getElementById("year").textContent = new Date().getFullYear();
+    </script>
+</footer>
+</body>
+</html>

@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8" />
+    <title>Qkinteq | 团队 Team</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<header>
+    <div class="container">
+        <nav class="nav">
+            <div class="logo">
+                <div class="logo-mark"></div>
+                <span>Qkinteq</span>
+            </div>
+            <div class="nav-links">
+                <a href="index.html">首页</a>
+                <a href="product.html">产品</a>
+                <a href="feature.html">功能亮点</a>
+                <a href="team.html">团队</a>
+                <a href="contact.html">联系</a>
+            </div>
+            <a href="contact.html" class="nav-cta">加入内测</a>
+        </nav>
+    </div>
+</header>
+
+<main>
+<section id="team">
+    <div class="container">
+        <div class="section-header">
+            <div class="section-kicker">Team</div>
+            <h2 class="section-title">一个早期、实干型的小团队</h2>
+            <p class="section-subtitle">
+                欢迎加入我们，一起构建下一代 AI 伴侣系统。
+            </p>
+        </div>
+
+        <div class="team-grid">
+
+            <div class="team-card">
+                <div class="team-avatar"></div>
+                <div class="team-name">Founder / PM</div>
+                <div class="team-role">产品方向 & 商业化探索</div>
+                <p class="team-tagline">
+                    负责产品方向、用研、融资沟通与整体节奏。
+                </p>
+            </div>
+
+            <div class="team-card">
+                <div class="team-avatar" style="background:radial-gradient(circle at 30% 20%, #facc15, #4f46e5);"></div>
+                <div class="team-name">Tech Collaborators</div>
+                <div class="team-role">前端 / 全栈 / AI 工程</div>
+                <p class="team-tagline">
+                    掌握 React / Next.js / Python / AI 应用落地的优秀工程师。
+                </p>
+            </div>
+
+            <div class="team-card">
+                <div class="team-avatar" style="background:radial-gradient(circle at 30% 20%, #f97316, #ec4899);"></div>
+                <div class="team-name">Content & Growth</div>
+                <div class="team-role">内容 / 社区 / 运营</div>
+                <p class="team-tagline">
+                    负责用户调研、社区搭建以及内容营销。
+                </p>
+            </div>
+
+        </div>
+    </div>
+</section>
+</main>
+
+<footer>
+    <div class="container footer-inner">
+        <div>© <span id="year"></span> Qkinteq. All rights reserved.</div>
+        <div class="footer-links">
+            <a href="index.html">首页</a>
+            <a href="product.html">产品</a>
+            <a href="feature.html">功能亮点</a>
+            <a href="team.html">团队</a>
+            <a href="contact.html">联系</a>
+        </div>
+    </div>
+
+<script>
+document.getElementById("year").textContent = new Date().getFullYear();
+</script>
+<script>
+const links = document.querySelectorAll('.nav-links a');
+const current = location.pathname.split("/").pop();
+links.forEach(a => {
+    if (a.getAttribute("href") === current) {
+        a.style.color = "var(--primary)";
+        a.style.fontWeight = "600";
+    }
+});
+</script>
+
+</footer>
+</body>
+</html>

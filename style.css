@@ -1,0 +1,1038 @@
+/* ============================================================
+   GLOBAL DESIGN SYSTEM
+   Qkinteq Official Website – Unified High-end UI
+   ============================================================ */
+
+/* ---- COLOR SYSTEM ---- */
+:root {
+    --primary: #7c3aed;
+    --primary-soft: #ede9fe;
+    --primary-gradient: linear-gradient(135deg, #6366f1, #ec4899);
+
+    --bg: #f9fafb;
+    --surface: rgba(255, 255, 255, 0.65);
+    --surface-strong: rgba(255, 255, 255, 0.9);
+
+    --text-main: #111827;
+    --text-muted: #6b7280;
+
+    --border: #e5e7eb;
+
+    --radius-sm: 10px;
+    --radius-md: 16px;
+    --radius-lg: 22px;
+
+    --shadow-sm: 0 4px 16px rgba(0,0,0,0.06);
+    --shadow-md: 0 12px 28px rgba(0,0,0,0.12);
+    --shadow-lg: 0 20px 50px rgba(0,0,0,0.16);
+}
+
+/* ---- RESET ---- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: system-ui, -apple-system, "SF Pro Text", Arial, sans-serif;
+    color: var(--text-main);
+
+    background:
+        /* 顶部柔紫光 */
+        radial-gradient(
+            700px circle at 50% 0%,
+            rgba(120, 91, 245, 0.20),
+            transparent 75%
+        ),
+
+        /* 中部右侧淡粉光，避免中间太白 */
+        radial-gradient(
+            600px circle at 85% 55%,
+            rgba(236, 72, 153, 0.12),
+            transparent 80%
+        ),
+
+        /* 底部偏左的柔粉紫，让底部不再纯白 */
+        radial-gradient(
+            800px circle at 20% 100%,
+            rgba(180, 120, 255, 0.15),
+            transparent 80%
+        ),
+
+        #f9f9ff; /* 非纯白、带一点紫白感 */
+
+    line-height: 1.65;
+}
+
+
+
+
+
+@keyframes fadeBody {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.container {
+    max-width: 1080px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 16px;
+}
+
+
+
+/* ============================================================
+   NAVIGATION
+   ============================================================ */
+
+header {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    background: rgba(255,255,255,0.75);
+    backdrop-filter: blur(16px);
+    border-bottom: 1px solid rgba(229,231,235,0.6);
+}
+
+.nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 14px 0;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: 700;
+    font-size: 18px;
+}
+
+.logo-mark {
+    width: 28px;
+    height: 28px;
+    border-radius: 999px;
+    background: var(--primary-gradient);
+}
+
+.nav-links {
+    display: flex;
+    gap: 24px;
+    font-size: 14px;
+}
+
+.nav-links a {
+    color: var(--text-muted);
+    transition: 0.2s;
+}
+
+.nav-links a:hover {
+    color: var(--primary);
+}
+
+.nav-cta {
+    padding: 8px 16px;
+    border-radius: 999px;
+    border: 1px solid var(--primary);
+    color: var(--primary);
+    font-size: 14px;
+    transition: 0.2s;
+}
+
+.nav-cta:hover {
+    background: var(--primary-soft);
+}
+
+
+
+/* ============================================================
+   SECTION SYSTEM
+   ============================================================ */
+
+section {
+    padding: 72px 0;
+}
+
+.section-header {
+    text-align: center;
+    margin-bottom: 48px;
+}
+
+.section-kicker {
+    color: var(--primary);
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    margin-bottom: 8px;
+}
+
+.section-title {
+    font-size: 30px;
+    font-weight: 700;
+    margin-bottom: 8px;
+}
+
+.section-subtitle {
+    font-size: 15px;
+    color: var(--text-muted);
+}
+
+
+/* Divider */
+.section-divider {
+    width: 80px;
+    height: 4px;
+    background: var(--primary-gradient);
+    border-radius: 999px;
+    margin: 28px auto 48px;
+}
+
+
+
+/* ============================================================
+   BUTTONS
+   ============================================================ */
+
+.btn-primary {
+    padding: 10px 20px;
+    border-radius: 999px;
+    background: var(--primary-gradient);
+    color: white;
+    border: none;
+    font-size: 14px;
+    cursor: pointer;
+    transition: 0.25s;
+}
+
+.btn-primary:hover {
+    opacity: 0.92;
+}
+
+.btn-ghost {
+    padding: 10px 18px;
+    border-radius: 999px;
+    border: 1px solid var(--border);
+    background: white;
+    color: var(--text-muted);
+    cursor: pointer;
+    font-size: 14px;
+    transition: 0.25s;
+}
+
+.btn-ghost:hover {
+    border-color: #c7d2fe;
+    color: var(--primary);
+}
+
+
+
+/* ============================================================
+   HERO (index)
+   ============================================================ */
+
+.hero {
+    padding: 80px 0;
+}
+
+.hero-inner {
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: 48px;
+    align-items: center;
+}
+
+/* Badge */
+.badge {
+    display: inline-flex;
+    gap: 6px;
+    align-items: center;
+    padding: 4px 10px;
+    font-size: 12px;
+    border-radius: 999px;
+    background: rgba(99,102,241,0.08);
+    color: #4f46e5;
+    margin-bottom: 16px;
+}
+
+.badge-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 999px;
+    background: #4f46e5;
+}
+
+.hero-title {
+    font-size: 36px;
+    font-weight: 800;
+    margin-bottom: 16px;
+    line-height: 1.22;
+}
+
+.hero-subtitle {
+    color: var(--text-muted);
+    font-size: 16px;
+    margin-bottom: 24px;
+}
+
+.hero-actions {
+    display: flex;
+    gap: 14px;
+    margin-bottom: 20px;
+}
+
+.hero-meta {
+    font-size: 14px;
+    color: var(--text-muted);
+}
+
+.hero-avatar-circle {
+    width: 46px;
+    height: 46px;
+    border-radius: 999px;
+    overflow: hidden;        /* ⭐让图片自动裁成圆形 */
+    background: none;        /* 取消原来的渐变背景 */
+}
+
+.hero-avatar-circle img.avatar-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;       /* ⭐保持图片比例、美观裁切 */
+    display: block;
+}
+
+/* ============================================================
+   HERO CHAT CARD (右侧聊天卡片)
+   ============================================================ */
+
+.hero-card {
+    background: var(--surface-strong);
+    backdrop-filter: blur(18px);
+    border-radius: 22px;
+    padding: 26px;
+    box-shadow: var(--shadow-lg);
+    border: 1px solid rgba(255,255,255,0.5);
+
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.hero-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.hero-avatar {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.hero-avatar-circle {
+    width: 46px;
+    height: 46px;
+    border-radius: 999px;
+    background: radial-gradient(circle at 30% 20%, #f9a8d4, #6366f1);
+}
+
+.hero-avatar-text .name {
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.hero-avatar-text .role {
+    font-size: 12px;
+    color: var(--text-muted);
+}
+
+.hero-pill {
+    background: var(--primary-soft);
+    color: var(--primary);
+    padding: 4px 12px;
+    border-radius: 999px;
+    font-size: 12px;
+}
+
+.hero-chat {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.chat-bubble {
+    padding: 14px 16px;
+    border-radius: 16px;
+    line-height: 1.55;
+    font-size: 14px;
+}
+
+.chat-user {
+    background: #eef2ff;
+    align-self: flex-end;
+    max-width: 85%;
+}
+
+.chat-ai {
+    background: white;
+    border: 1px solid var(--border);
+    align-self: flex-start;
+    max-width: 88%;
+}
+
+.chat-label {
+    font-size: 11px;
+    color: var(--text-muted);
+    margin-bottom: 6px;
+}
+/* ============================================================
+   VISION SECTION (index)
+   ============================================================ */
+
+.vision-section {
+    padding: 96px 0;
+    position: relative;
+}
+
+.vision-grid {
+    display: grid;
+    grid-template-columns: 0.9fr 1.1fr;
+    align-items: center;
+    gap: 64px;
+}
+
+/* 左侧视觉 */
+.vision-visual {
+    position: relative;
+}
+
+.vision-circle {
+    width: 300px;
+    height: 300px;
+    background: var(--primary-gradient);
+    border-radius: 50%;
+    filter: blur(120px);
+    opacity: 0.35;
+    position: absolute;
+    top: 40px;
+    left: 20px;
+}
+
+.vision-circle-sm {
+    width: 160px;
+    height: 160px;
+    background: var(--primary-gradient);
+    border-radius: 50%;
+    filter: blur(80px);
+    opacity: 0.28;
+    position: absolute;
+    top: 200px;
+    left: 140px;
+}
+
+/* 右侧文本 */
+.vision-title {
+    font-size: 32px;
+    margin-bottom: 10px;
+    font-weight: 700;
+}
+
+.vision-subtitle {
+    color: var(--text-muted);
+    font-size: 15px;
+    margin-bottom: 32px;
+}
+
+.vision-features {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.vf-item {
+    display: flex;
+    gap: 14px;
+    align-items: flex-start;
+}
+
+.vf-dot {
+    width: 10px;
+    height: 10px;
+    background: #6366f1;
+    border-radius: 999px;
+    margin-top: 6px;
+}
+
+.vf-item h3 {
+    font-size: 18px;
+    margin-bottom: 4px;
+}
+
+.vf-item p {
+    font-size: 15px;
+    color: var(--text-muted);
+}
+
+/* 顶部愿景句 */
+.vision-quote {
+    text-align: center;
+    font-size: 24px;
+    font-weight: 600;
+    margin-top: 80px;
+    color: #111;
+}
+
+
+
+/* ============================================================
+   PRODUCT PAGE
+   ============================================================ */
+
+.product-layout {
+    display: grid;
+    grid-template-columns: 1fr 0.9fr;
+    gap: 40px;
+    align-items: start;
+}
+
+.product-list li {
+    padding: 8px 0 8px 6px;
+    border-left: 3px solid transparent;
+    transition: 0.25s;
+    font-size: 15px;
+}
+
+.product-list li:hover {
+    border-left-color: var(--primary);
+    background: rgba(124,58,237,0.06);
+    padding-left: 12px;
+}
+
+/* ========== 新 UI：Apple 风玻璃卡片 ========== */
+
+/* ============================================================
+   🌈 高级 Glow Glass 卡片（全新设计）
+   ============================================================ */
+
+.product-card {
+    position: relative;
+
+    /* 半透明玻璃背景 */
+    background: rgba(255, 255, 255, 0.55);
+    backdrop-filter: blur(18px);
+
+    /* 更现代的圆角（更柔软） */
+    border-radius: 24px;
+
+    padding: 36px 40px;
+    border: 1px solid rgba(255, 255, 255, 0.9);
+
+    /* 更轻盈柔和的阴影 */
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.08);
+
+    transition: 0.3s ease;
+}
+
+/* 卡片 hover 变得更立体 */
+.product-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 18px 45px rgba(0, 0, 0, 0.12);
+}
+
+/* 卡片左侧品牌色发光边线 */
+.product-card::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 16px;
+    bottom: 16px;
+    width: 5px;
+
+    border-radius: 6px;
+    background: linear-gradient(
+        to bottom,
+        rgba(124, 58, 237, 0.9),
+        rgba(236, 72, 153, 0.85)
+    );
+
+    box-shadow: 0 0 18px rgba(140, 80, 255, 0.45);
+}
+
+/* 标题更强、对齐更精致 */
+.product-card h3 {
+    font-size: 22px;
+    margin-bottom: 16px;
+    font-weight: 700;
+    color: #111;
+}
+
+/* 正文排版更清晰 */
+.product-card p {
+    font-size: 15px;
+    line-height: 1.7;
+    color: #4b5563;
+}
+
+/* 列表格式更紧凑 */
+.product-card p br {
+    line-height: 0.6;
+}
+
+
+
+/* ============================================================
+   FEATURE PAGE
+   ============================================================ */
+
+.enhanced-features {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 32px;
+    margin-top: 40px;
+}
+
+.enhanced-feature-card {
+    background: var(--surface);
+    backdrop-filter: blur(16px);
+    padding: 32px 26px;
+    border-radius: 18px;
+    border: 1px solid rgba(255,255,255,0.4);
+    box-shadow: var(--shadow-md);
+    transition: 0.3s ease;
+}
+
+.enhanced-feature-card:hover {
+    transform: translateY(-6px);
+    box-shadow: var(--shadow-lg);
+}
+
+
+.feature-tag {
+    margin-top: 8px;
+    font-size: 12px;
+    color: var(--primary);
+    padding: 4px 10px;
+    border-radius: 999px;
+    background: var(--primary-soft);
+}
+
+
+
+/* ============================================================
+   TIMELINE (index)
+   ============================================================ */
+
+.timeline-section {
+    padding: 96px 0;
+}
+
+.timeline {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.timeline-item,
+.tl-item {
+    position: relative;
+    padding-left: 26px;
+}
+
+.timeline-item .dot,
+.tl-dot {
+    width: 10px;
+    height: 10px;
+    background: #6366f1;
+    border-radius: 999px;
+    position: absolute;
+    top: 6px;
+    left: 0;
+}
+
+.timeline-item h3,
+.tl-item h3 {
+    font-size: 18px;
+    margin-bottom: 6px;
+}
+
+
+
+/* ============================================================
+   CONTACT PAGE
+   ============================================================ */
+
+.contact-row {
+    display: grid;
+    grid-template-columns: 100px 1fr;
+    gap: 8px;
+    font-size: 14px;
+    margin-bottom: 10px;
+}
+
+.contact-label {
+    font-weight: 600;
+    color: #4b5563;
+}
+
+.contact-value {
+    color: var(--text-muted);
+}
+
+.email-link {
+    color: var(--primary);
+}
+
+.email-link:hover {
+    text-decoration: underline;
+}
+
+
+
+/* ============================================================
+   FOOTER
+   ============================================================ */
+
+.footer {
+    margin-top: 80px;
+    padding: 70px 0 50px;
+    background: #fafbfc;
+    border-top: 1px solid rgba(0,0,0,0.06);
+}
+
+.footer-inner {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+}
+
+.footer-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.footer-brand {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.footer-logo-text {
+    font-size: 17px;
+    font-weight: 700;
+}
+
+.footer-links {
+    display: flex;
+    gap: 26px;
+}
+
+.footer-links a {
+    font-size: 14px;
+    color: var(--text-muted);
+}
+
+.footer-links a:hover {
+    color: var(--primary);
+}
+
+.footer-divider {
+    height: 1px;
+    background: rgba(0,0,0,0.08);
+    width: 100%;
+}
+
+.footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    font-size: 13px;
+    color: var(--text-muted);
+}
+
+.footer-meta {
+    opacity: 0.75;
+}
+
+
+
+/* ============================================================
+   RESPONSIVE DESIGN
+   ============================================================ */
+
+@media (max-width: 980px) {
+    .hero-inner {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+
+    .hero-card {
+        margin: 0 auto;
+    }
+
+    .vision-grid {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+
+    .product-layout {
+        grid-template-columns: 1fr;
+    }
+
+    .enhanced-features {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 720px) {
+
+    .section-title {
+        font-size: 24px;
+    }
+
+    .vision-title {
+        font-size: 26px;
+    }
+
+    .vision-quote {
+        font-size: 20px;
+    }
+
+    .footer-top {
+        flex-direction: column;
+        gap: 18px;
+    }
+
+    .footer-bottom {
+        flex-direction: column;
+        gap: 10px;
+        text-align: center;
+    }
+}
+
+
+/* ================= VISION SECTION（新版，无分割线） ================= */
+
+.vision-section {
+    padding: 140px 0 160px;
+    position: relative;
+    background: transparent;   /* 关键：不再覆盖 body 背景 */
+    backdrop-filter: none;
+}
+
+/* 左侧光斑弱化到非常淡，只作为氛围，不会形成色块 */
+.vision-visual {
+    position: relative;
+    height: 260px;
+    opacity: 0.28;
+}
+
+.vision-circle {
+    width: 260px;
+    height: 260px;
+    background: radial-gradient(circle, rgba(124,58,237,0.12), transparent 70%);
+    border-radius: 50%;
+    position: absolute;
+    top: 20px;
+    left: 30px;
+    filter: blur(110px);
+}
+
+.vision-circle-sm {
+    width: 160px;
+    height: 160px;
+    background: radial-gradient(circle, rgba(236,72,153,0.10), transparent 70%);
+    border-radius: 50%;
+    position: absolute;
+    top: 160px;
+    left: 120px;
+    filter: blur(90px);
+}
+
+/* Vision 内容永远浮在最上层 */
+.vision-content,
+.vision-quote,
+.vision-grid {
+    position: relative;
+    z-index: 2;
+}
+
+/* Layout 轻微调整，让左侧不空 */
+.vision-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.1fr;
+    gap: 80px;
+    align-items: center;
+}
+
+.vision-left-text {
+    position: absolute;
+    top: 40px;
+    left: 0;
+    width: 260px;
+    padding-left: 10px;
+
+    animation: fadeIn 0.8s ease;
+}
+
+.vision-left-text h3 {
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 14px;
+    color: #2d2d45;
+}
+
+.vision-left-text p {
+    font-size: 14px;
+    line-height: 1.6;
+    color: #6b7280;
+    margin-bottom: 28px;
+}
+
+.vision-stats {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+.vs-item h4 {
+    font-size: 15px;
+    font-weight: 600;
+    color: #4f46e5;
+}
+
+.vs-item span {
+    font-size: 13px;
+    color: #6b7280;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+/* 左侧卡片（干净不受 blur 影响） */
+.vision-left-card {
+    background: rgba(255,255,255,0.55);
+    backdrop-filter: blur(18px);
+    border-radius: 20px;
+    border: 1px solid rgba(255,255,255,0.6);
+    padding: 28px 32px;
+    max-width: 340px;
+
+    box-shadow: 0 8px 24px rgba(0,0,0,0.05);
+    position: relative;
+    z-index: 3; /* 保证不被紫色光圈压住 */
+}
+
+.vision-left-card h3 {
+    font-size: 22px;
+    font-weight: 700;
+    margin-bottom: 16px;
+}
+
+.vision-left-card .vlc-desc {
+    font-size: 14px;
+    color: #4b5563;
+    line-height: 1.7;
+    margin-bottom: 24px;
+}
+
+.vlc-list {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+.vlc-item h4 {
+    font-size: 15px;
+    font-weight: 600;
+    color: #4f46e5;
+    margin-bottom: 4px;
+}
+
+.vlc-item p {
+    font-size: 13px;
+    color: #6b7280;
+}
+
+
+/* ===========================
+   WHY SECTION — Modern Compact Cards
+   =========================== */
+
+.why-cards {
+    display: flex;
+    justify-content: center;
+    gap: 32px;
+    margin-top: 40px;
+}
+
+.why-card {
+    width: 340px;                   /* ⭐关键：固定卡片宽度，不再无限拉长 */
+    min-height: 260px;
+    background: rgba(255, 255, 255, 0.75);
+    backdrop-filter: blur(14px);
+    border-radius: 22px;
+    padding: 32px 28px;
+    box-shadow: 0 12px 32px rgba(0,0,0,0.07);
+    transition: 0.25s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+.why-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 20px 48px rgba(0,0,0,0.08);
+}
+
+/* 数字 */
+.why-num {
+    font-size: 22px;
+    font-weight: 600;
+    color: #6d5dfc;
+    background: rgba(109, 93, 252, 0.15);
+    width: 40px;
+    height: 40px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 18px;
+}
+
+/* 标题 */
+.why-card h3 {
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 12px;
+    color: #1f2937;
+}
+
+/* 文本 */
+.why-card p {
+    font-size: 14px;
+    line-height: 1.7;
+    color: #4b5563;
+}
+
+.mini-avatar {
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.mini-avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
