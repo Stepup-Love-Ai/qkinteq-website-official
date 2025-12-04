@@ -1036,3 +1036,39 @@ section {
     height: 100%;
     object-fit: cover;
 }
+
+/* ============================================================
+   GLASS CARD (玻璃卡片样式，用于 “阶段 1 / 阶段 2 / 阶段 3”)
+   ============================================================ */
+
+.glass-card {
+    background: rgba(255, 255, 255, 0.55);     /* 半透明白玻璃 */
+    backdrop-filter: blur(16px);               /* 模糊玻璃效果 */
+    -webkit-backdrop-filter: blur(16px);
+
+    border-radius: 24px;                      /* 大圆角，现代感 */
+    padding: 32px 28px;
+
+    border: 1px solid rgba(255,255,255,0.65); /* 轻微白边 */
+    box-shadow: 0 10px 30px rgba(0,0,0,0.08); /* 柔软阴影 */
+
+    transition: 0.3s ease;
+}
+
+.glass-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 16px 38px rgba(0,0,0,0.12);
+}
+
+.glass-card h3 {
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 12px;
+    color: #1f2937;
+}
+
+.glass-card p {
+    font-size: 15px;
+    line-height: 1.7;
+    color: #4b5563;
+}
