@@ -108,14 +108,32 @@ a {
    NAVIGATION
    ============================================================ */
 
-header {
+/* header {
     position: sticky;
     top: 0;
     z-index: 50;
     background: rgba(255,255,255,0.75);
     backdrop-filter: blur(16px);
     border-bottom: 1px solid rgba(229,231,235,0.6);
+} */
+ header {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+
+    /* 默认假玻璃 */
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+
+    background: linear-gradient(
+        180deg,
+        rgba(255,255,255,0.92),
+        rgba(255,255,255,0.85)
+    );
+
+    border-bottom: 1px solid rgba(229,231,235,0.6);
 }
+
 
 .nav {
     display: flex;
@@ -211,7 +229,7 @@ header {
     background: #901b55;
     transform: scaleX(0);
     transform-origin: center;
-    transition: transform 0.3s ease;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 
 .nav-links a:hover {
@@ -416,7 +434,7 @@ body.product-page .section-header {
     display: flex;
     flex-direction: column;
     gap: 20px;
-    transition: 0.3s ease;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 
 .hero-card:hover {
@@ -513,7 +531,7 @@ body.product-page .section-header {
     position: relative;
 }
 
-.vision-circle {
+/* .vision-circle {
     width: 300px;
     height: 300px;
     background: var(--primary-gradient);
@@ -523,7 +541,18 @@ body.product-page .section-header {
     position: absolute;
     top: 40px;
     left: 20px;
+} */
+ .vision-circle {
+    filter: none;
+
+    background: radial-gradient(
+        circle,
+        rgba(124,58,237,0.18),
+        rgba(124,58,237,0.08),
+        transparent 70%
+    );
 }
+
 
 .vision-circle-sm {
     width: 160px;
@@ -562,7 +591,7 @@ body.product-page .section-header {
     align-items: flex-start;
     position: relative;
     padding-left: 0;
-    transition: padding-left 0.3s ease;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 
 .vf-item::before {
@@ -575,7 +604,7 @@ body.product-page .section-header {
     background: var(--primary);
     transform: scaleY(0);
     transform-origin: top;
-    transition: transform 0.3s ease;
+   transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 
 .vf-item:hover::before {
@@ -657,7 +686,7 @@ body.product-page .section-header {
     /* 更轻盈柔和的阴影 */
     box-shadow: 0 12px 35px rgba(0, 0, 0, 0.08);
 
-    transition: 0.3s ease;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 
 /* 卡片 hover 变得更立体 */
@@ -718,20 +747,61 @@ body.product-page .section-header {
     margin-top: 40px;
 }
 
-.enhanced-feature-card {
+/* .enhanced-feature-card {
     background: var(--surface);
     backdrop-filter: blur(16px);
     padding: 32px 26px;
     border-radius: 18px;
     border: 1px solid rgba(255,255,255,0.4);
     box-shadow: var(--shadow-md);
-    transition: 0.3s ease;
+   transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 
 .enhanced-feature-card:hover {
     transform: translateY(-6px);
     box-shadow: var(--shadow-lg);
+} */
+
+.enhanced-feature-card {
+    /* ❌ 禁用默认 blur（关键） */
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+
+    /* ✅ 假玻璃视觉 */
+    background: linear-gradient(
+        180deg,
+        rgba(255,255,255,0.92),
+        rgba(255,255,255,0.86)
+    );
+
+    padding: 32px 26px;
+    border-radius: 18px;
+    border: 1px solid rgba(255,255,255,0.55);
+
+    /* 更轻的阴影 */
+    box-shadow: 0 8px 22px rgba(0,0,0,0.08);
+
+    /* ❌ 禁止 transition: all */
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease,
+        background 0.25s ease;
 }
+.enhanced-feature-card:hover {
+    /* ⭐ hover 才启用 blur */
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+
+    background: rgba(255,255,255,0.82);
+
+    transform: translateY(-6px);
+    box-shadow: 0 18px 45px rgba(0,0,0,0.12);
+}
+.feature-tag {
+    background: var(--primary-soft);
+    color: var(--primary);
+}
+
 
 
 .feature-tag {
@@ -1134,7 +1204,7 @@ body.product-page .section-header {
     box-shadow: 0 8px 24px rgba(0,0,0,0.05);
     position: relative;
     z-index: 3; /* 保证不被紫色光圈压住 */
-    transition: 0.3s ease;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 
 .vision-left-card:hover {
@@ -1185,8 +1255,8 @@ body.product-page .section-header {
     margin-top: 20px;
 }
 
-.why-card {
-    width: 340px;                   /* ⭐关键：固定卡片宽度，不再无限拉长 */
+/* .why-card {
+    width: 340px;                   
     min-height: 260px;
     background: rgba(255, 255, 255, 0.75);
     backdrop-filter: blur(14px);
@@ -1201,6 +1271,44 @@ body.product-page .section-header {
 .why-card:hover {
     transform: translateY(-6px);
     box-shadow: 0 20px 48px rgba(0,0,0,0.08);
+} */
+.why-card {
+    width: 340px;
+    min-height: 260px;
+
+    /* ❌ 禁用默认 blur */
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+
+    background: linear-gradient(
+        180deg,
+        rgba(255,255,255,0.9),
+        rgba(255,255,255,0.85)
+    );
+
+    border-radius: 22px;
+    padding: 32px 28px;
+
+    border: 1px solid rgba(255,255,255,0.6);
+
+    box-shadow: 0 10px 26px rgba(0,0,0,0.08);
+
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease,
+        background 0.25s ease;
+
+    display: flex;
+    flex-direction: column;
+}
+.why-card:hover {
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+
+    background: rgba(255,255,255,0.84);
+
+    transform: translateY(-6px);
+    box-shadow: 0 20px 48px rgba(0,0,0,0.10);
 }
 
 /* 数字 */
@@ -1250,21 +1358,57 @@ body.product-page .section-header {
    GLASS CARD (玻璃卡片样式，用于 “阶段 1 / 阶段 2 / 阶段 3”)
    ============================================================ */
 
-.glass-card {
-    background: rgba(255, 255, 255, 0.55);     /* 半透明白玻璃 */
-    backdrop-filter: blur(16px);               /* 模糊玻璃效果 */
+/* .glass-card {
+    background: rgba(255, 255, 255, 0.55);    
+    backdrop-filter: blur(16px);              
     -webkit-backdrop-filter: blur(16px);
 
-    border-radius: 24px;                      /* 大圆角，现代感 */
+    border-radius: 24px;                     
     padding: 32px 28px;
 
-    border: 1px solid rgba(255,255,255,0.65); /* 轻微白边 */
-    box-shadow: 0 10px 30px rgba(0,0,0,0.08); /* 柔软阴影 */
+    border: 1px solid rgba(255,255,255,0.65); 
+    box-shadow: 0 10px 30px rgba(0,0,0,0.08); 
 
     transition: 0.3s ease;
+} */
+
+.glass-card {
+    /* 假玻璃：不 blur 背景 */
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+
+    background: linear-gradient(
+        180deg,
+        rgba(255,255,255,0.92),
+        rgba(255,255,255,0.85)
+    );
+
+    border-radius: 24px;
+    padding: 32px 28px;
+
+    border: 1px solid rgba(255,255,255,0.65);
+
+    /* 更轻的阴影 */
+    box-shadow: 0 8px 24px rgba(0,0,0,0.07);
+
+    /* 明确 transition，禁止 all */
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease,
+        background 0.25s ease;
 }
 
+
+
+/* .glass-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 16px 38px rgba(0,0,0,0.12);
+} */
+
 .glass-card:hover {
+    backdrop-filter: blur(12px);
+    background: rgba(255,255,255,0.82);
+
     transform: translateY(-4px);
     box-shadow: 0 16px 38px rgba(0,0,0,0.12);
 }
