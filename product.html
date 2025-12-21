@@ -10,25 +10,46 @@
 <body class="product-page">
 
 <header>
-    <div class="container">
-        <nav class="nav">
-            <div class="nav-left">
-                <a href="index.html" class="logo">
-                    <div class="mini-avatar">
-                        <img src="img.jpeg" class="avatar-img" />
-                    </div>
-                    <span>Qkinteq</span>
-                </a>
-                <div class="nav-links">
-                    <a href="index.html">首页</a>
-                    <a href="product.html">产品</a>
-                    <a href="feature.html">功能亮点</a>
-                    <a href="contact.html">联系</a>
-                </div>
-            </div>
-            <a href="contact.html" class="nav-cta">加入内测</a>
-        </nav>
-    </div>
+  <div class="container">
+    <nav class="nav">
+
+      <!-- 左：Logo -->
+      <div class="nav-left">
+        <a href="index.html" class="logo">
+          <div class="mini-avatar">
+            <img src="img.jpeg" class="avatar-img" />
+          </div>
+          <span>Qkinteq</span>
+        </a>
+      </div>
+
+      <!-- 中：主导航（要居中） -->
+      <div class="nav-center nav-links">
+        <a href="index.html" data-i18n="nav.home">首页</a>
+        <a href="product.html" data-i18n="nav.product">产品</a>
+        <a href="feature.html" data-i18n="nav.feature">功能亮点</a>
+        <a href="contact.html" data-i18n="nav.contact">联系</a>
+      </div>
+
+      <!-- 右：操作区 -->
+      <div class="nav-right">
+        <button
+          type="button"
+          class="lang-btn"
+          id="langToggle"
+          onclick="toggleLang()"
+          aria-label="Toggle language"
+        >
+          EN
+        </button>
+
+        <a href="contact.html" class="nav-cta" data-i18n="nav.cta">
+          加入内测
+        </a>
+      </div>
+
+    </nav>
+  </div>
 </header>
 
 <main>
