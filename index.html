@@ -2,7 +2,7 @@
 <html lang="zh-CN">
 <head>
     <meta charset="UTF-8" />
-    <title>Qkinteq | AI Companion Studio</title>
+    <title data-i18n="page.title">Qkinteq | AI Companion Studio</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="stylesheet" href="style.css" />
 </head>
@@ -380,6 +380,7 @@
 window.I18N = {
   zh: {
     /* ===== NAV ===== */
+    "page.title": "Qkinteq | 首页",
     "nav.home": "首页",
     "nav.product": "产品",
     "nav.feature": "功能亮点",
@@ -488,6 +489,7 @@ window.I18N = {
 
 en: {
   /* ===== NAV ===== */
+  "page.title": "Qkinteq | Home",
   "nav.home": "Home",
   "nav.product": "Product",
   "nav.feature": "Key Features",
@@ -626,8 +628,14 @@ en: {
 </script>
 
 <script>
-let currentLang = "zh";
+/* ======================
+   Language Persistence
+   ====================== */
 
+// 1. 读取已保存语言（如果有）
+let currentLang = localStorage.getItem("qkinteq_lang") || "zh";
+
+// 2. 应用语言
 function applyLang(lang) {
   document.documentElement.lang = lang === "zh" ? "zh-CN" : "en";
 
@@ -638,16 +646,21 @@ function applyLang(lang) {
     }
   });
 
-  // ⭐ 同步更新语言按钮文字
   const langBtn = document.getElementById("langToggle");
   if (langBtn) {
     langBtn.textContent = lang === "zh" ? "EN" : "中文";
   }
 }
 
-
+// 3. 切换语言（并持久化）
 function toggleLang() {
   currentLang = currentLang === "zh" ? "en" : "zh";
+  localStorage.setItem("qkinteq_lang", currentLang);
   applyLang(currentLang);
 }
+
+// 4. 页面加载时自动应用上一次选择
+document.addEventListener("DOMContentLoaded", () => {
+  applyLang(currentLang);
+});
 </script>
