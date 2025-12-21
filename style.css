@@ -1281,3 +1281,39 @@ body.product-page .section-header {
     line-height: 1.7;
     color: #4b5563;
 }
+.lang-btn {
+  margin-right: 12px;
+  padding: 6px 10px;
+  font-size: 13px;
+  background: transparent;
+  border: 1px solid rgba(0,0,0,0.15);
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.lang-btn:hover {
+  background: rgba(0,0,0,0.04);
+}
+
+.nav {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+}
+
+.nav-center {
+  display: flex;
+  justify-content: center;  /* ⭐ 真正居中 */
+  gap: 28px;
+}
+
+.nav-left {
+  display: flex;
+  align-items: center;
+}
+
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}

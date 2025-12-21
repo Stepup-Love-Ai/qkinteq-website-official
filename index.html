@@ -11,27 +11,46 @@
 
 <!-- ====================== 导航 ====================== -->
 <header>
-    <div class="container">
-        <nav class="nav">
-            <div class="nav-left">
-                <a href="index.html" class="logo">
-                    <div class="mini-avatar">
-                        <img src="img.jpeg" class="avatar-img" />
-                    </div>
-                    <span>Qkinteq</span>
-                </a>
+  <div class="container">
+    <nav class="nav">
 
-                <div class="nav-links">
-                    <a href="index.html">首页</a>
-                    <a href="product.html">产品</a>
-                    <a href="feature.html">功能亮点</a>
-                    <a href="contact.html">联系</a>
-                </div>
-            </div>
+      <!-- 左：Logo -->
+      <div class="nav-left">
+        <a href="index.html" class="logo">
+          <div class="mini-avatar">
+            <img src="img.jpeg" class="avatar-img" />
+          </div>
+          <span>Qkinteq</span>
+        </a>
+      </div>
 
-            <a href="contact.html" class="nav-cta">加入内测</a>
-        </nav>
-    </div>
+      <!-- 中：主导航（要居中） -->
+      <div class="nav-center nav-links">
+        <a href="index.html" data-i18n="nav.home">首页</a>
+        <a href="product.html" data-i18n="nav.product">产品</a>
+        <a href="feature.html" data-i18n="nav.feature">功能亮点</a>
+        <a href="contact.html" data-i18n="nav.contact">联系</a>
+      </div>
+
+      <!-- 右：操作区 -->
+      <div class="nav-right">
+        <button
+          type="button"
+          class="lang-btn"
+          id="langToggle"
+          onclick="toggleLang()"
+          aria-label="Toggle language"
+        >
+          EN
+        </button>
+
+        <a href="contact.html" class="nav-cta" data-i18n="nav.cta">
+          加入内测
+        </a>
+      </div>
+
+    </nav>
+  </div>
 </header>
 
 
@@ -45,26 +64,26 @@
         <div>
             <div class="badge">
                 <span class="badge-dot"></span>
-                <span>AI Companion Studio · 早期项目</span>
+                <span data-i18n="hero.badge">AI Companion Studio · 早期项目</span>
             </div>
 
-            <h1 class="hero-title">
+            <h1 class="hero-title" data-i18n="hero.title.1">
                 为每个人打造 <br />
-                <span style="color:#4f46e5;">可定制的 AI 陪伴与规划系统</span>
+                <span style="color:#4f46e5;" data-i18n="hero.title.2">可定制的 AI 陪伴与规划系统</span>
             </h1>
 
-            <p class="hero-subtitle">
+            <p class="hero-subtitle" data-i18n="hero.subtitle">
                 基于对真实生活决策、情绪连接与长期目标的理解，我们正在构建下一代 AI 伴侣体系——
                 不仅能聊天，更能参与用户生活、结构化日程、提供建议，并在长期关系中持续学习成长。
             </p>
 
             <div class="hero-actions">
-                <a href="product.html"><button class="btn-primary">查看产品方向</button></a>
-                <a href="contact.html"><button class="btn-ghost">预约 Demo / 投资沟通</button></a>
+                <a href="product.html"><button class="btn-primary" data-i18n="hero.btn.product">查看产品方向</button></a>
+                <a href="contact.html"><button class="btn-ghost" data-i18n="hero.btn.demo">预约 Demo / 投资沟通</button></a>
             </div>
 
             <p class="hero-meta">
-                <b>当前阶段：</b> Pre-seed ｜ Web MVP 验证中 ｜ 欢迎技术合伙人、设计伙伴 & 早期用户交流
+                <b data-i18n="hero.stage.label">当前阶段：</b> <b data-i18n="hero.stage.value"> Pre-seed ｜ Web MVP 验证中 ｜ 欢迎技术合伙人、设计伙伴 & 早期用户交流</b>
             </p>
         </div>
 
@@ -73,7 +92,7 @@
             <div class="hero-card-header">
                 <div class="hero-avatar">
                     <div class="hero-avatar-circle">
-                        <img src="img.jpeg" class="avatar-img" />
+                        <img src="img2.jpeg" class="avatar-img" />
                     </div>
                     <div class="hero-avatar-text">
                         <div class="name">LuvLuv Daily</div>
@@ -115,26 +134,26 @@
         <!-- 左侧视觉 -->
         <div class="vision-left-card">
 
-    <h3>重新思考人与 AI 的关系</h3>
-    <p class="vlc-desc">
+    <h3 data-i18n="vision.left.title">重新思考人与 AI 的关系</h3>
+    <p class="vlc-desc" data-i18n="vision.left.desc">
         我们相信 AI 不应只是回答问题的工具，<br>
         而应成为一种长期协作、持续理解并与你共同成长的伙伴形式。
     </p>
 
     <div class="vlc-list">
         <div class="vlc-item">
-            <h4>长期记忆</h4>
-            <p>持续学习你的偏好与习惯</p>
+            <h4 data-i18n="vision.memory">长期记忆</h4>
+            <p data-i18n="vision.memory.desc">持续学习你的偏好与习惯</p>
         </div>
 
         <div class="vlc-item">
-            <h4>一致人格</h4>
-            <p>稳定的语气与情绪风格</p>
+            <h4 data-i18n="vision.persona">一致人格</h4>
+            <p data-i18n="vision.persona.desc">稳定的语气与情绪风格</p>
         </div>
 
         <div class="vlc-item">
-            <h4>结构化协作</h4>
-            <p>从灵感到行动的自动化闭环</p>
+            <h4 data-i18n="vision.structure">结构化协作</h4>
+            <p data-i18n="vision.structure.desc">从灵感到行动的自动化闭环</p>
         </div>
     </div>
 
@@ -146,8 +165,8 @@
 
             <div class="section-kicker">VISION</div>
 
-            <h2 class="vision-title">AI 关系将成为一种新的生活方式</h2>
-            <p class="vision-subtitle">
+            <h2 class="vision-title" data-i18n="vision.title">AI 关系将成为一种新的生活方式</h2>
+            <p class="vision-subtitle" data-i18n="vision.subtitle">
                 不只是工具，而是一个长期、稳定、可协作的伙伴。
             </p>
 
@@ -156,24 +175,24 @@
                 <div class="vf-item">
                     <span class="vf-dot"></span>
                     <div>
-                        <h3>理解你</h3>
-                        <p>通过长期互动建立“熟悉感”，让 AI 逐渐形成对你的稳定认知模型。</p>
+                        <h3 data-i18n="vision.feature.understand.title">理解你</h3>
+                        <p data-i18n="vision.feature.understand.desc">通过长期互动建立“熟悉感”，让 AI 逐渐形成对你的稳定认知模型。</p>
                     </div>
                 </div>
 
                 <div class="vf-item">
                     <span class="vf-dot"></span>
                     <div>
-                        <h3>陪伴你</h3>
-                        <p>提供一致语气与情绪风格，让体验更像真实关系而非一次性对话。</p>
+                        <h3 data-i18n="vision.feature.accompany.title">陪伴你</h3>
+                        <p data-i18n="vision.feature.accompany.desc">提供一致语气与情绪风格，让体验更像真实关系而非一次性对话。</p>
                     </div>
                 </div>
 
                 <div class="vf-item">
                     <span class="vf-dot"></span>
                     <div>
-                        <h3>协助你</h3>
-                        <p>把对话转化为结构化计划，让“灵感 → 行动 → 提醒 → 复盘”形成自动循环。</p>
+                        <h3 data-i18n="vision.feature.assist.title">协助你</h3>
+                        <p data-i18n="vision.feature.assist.desc">把对话转化为结构化计划，让“灵感 → 行动 → 提醒 → 复盘”形成自动循环。</p>
                     </div>
                 </div>
 
@@ -182,7 +201,7 @@
         </div>
     </div>
 
-    <div class="vision-quote container">
+    <div class="vision-quote container" data-i18n="vision.quote">
         “AI 不应冷冰冰，而是一种新的连接方式，让人被理解、被支持、被陪伴。”
     </div>
 
@@ -195,8 +214,8 @@
 
     <div class="why-card">
         <div class="why-num">1</div>
-        <h3>长期关系，而非一次性对话</h3>
-        <p>
+        <h3 data-i18n="why.1.title">长期关系，而非一次性对话</h3>
+        <p data-i18n="why.1.desc">
             当前 AI 大多以「即时问答」为主，缺乏对用户长期偏好、行为模式和情绪的理解。
             Qkinteq 希望让 AI 真正“记住你”，并在多次互动中不断优化协作方式。
         </p>
@@ -204,8 +223,8 @@
 
     <div class="why-card">
         <div class="why-num">2</div>
-        <h3>结构化执行能力</h3>
-        <p>
+        <h3 data-i18n="why.2.title">结构化执行能力</h3>
+        <p data-i18n="why.2.desc">
             用户不仅需要答案，更需要真正的帮助：自动记录灵感、跟进计划、生成行动与复盘。
             我们正在构建能把对话转化为行动的 AI。
         </p>
@@ -213,8 +232,8 @@
 
     <div class="why-card">
         <div class="why-num">3</div>
-        <h3>陪伴与情绪支持</h3>
-        <p>
+        <h3 data-i18n="why.3.title">陪伴与情绪支持</h3>
+        <p data-i18n="why.3.desc">
             陪伴的关键在于稳定性、一致性和情绪温度。我们探索如何让 AI 更像可信赖的伙伴。
         </p>
     </div>
@@ -228,8 +247,8 @@
     <div class="container">
 
         <div class="section-header">
-            <div class="section-kicker">CORE PILLARS</div>
-            <h2 class="section-title">我们的核心构建方向</h2>
+            <div class="section-kicker" data-i18n="pillars.kicker">CORE PILLARS</div>
+            <h2 class="section-title" data-i18n="pillars.title">我们的核心构建方向</h2>
         </div>
 
         <div class="product-layout">
@@ -238,51 +257,53 @@
                 <div class="vf-item">
                     <span class="vf-dot"></span>
                     <div>
-                        <h3>用户画像与偏好学习系统</h3>
-                        <p>通过长期互动持续学习用户的偏好、行为模式和情绪特征，建立个性化的认知模型。</p>
+                        <h3 data-i18n="pillars.userModel.title">用户画像与偏好学习系统</h3>
+                        <p data-i18n="pillars.userModel.desc">通过长期互动持续学习用户的偏好、行为模式和情绪特征，建立个性化的认知模型。</p>
                     </div>
                 </div>
 
                 <div class="vf-item">
                     <span class="vf-dot"></span>
                     <div>
-                        <h3>长期记忆与语境模型</h3>
-                        <p>构建稳定的长期记忆系统，让 AI 能够记住历史互动，形成连贯的对话语境。</p>
+                        <h3 data-i18n="pillars.memory.title">长期记忆与语境模型</h3>
+                        <p data-i18n="pillars.memory.desc">构建稳定的长期记忆系统，让 AI 能够记住历史互动，形成连贯的对话语境。</p>
                     </div>
                 </div>
 
                 <div class="vf-item">
                     <span class="vf-dot"></span>
                     <div>
-                        <h3>情绪风格保持与一致性</h3>
-                        <p>维持一致的语气、情绪风格和人格特征，让 AI 陪伴体验更像真实关系。</p>
+                        <h3 data-i18n="pillars.persona.title">情绪风格保持与一致性</h3>
+                        <p data-i18n="pillars.persona.desc">维持一致的语气、情绪风格和人格特征，让 AI 陪伴体验更像真实关系。</p>
                     </div>
                 </div>
 
                 <div class="vf-item">
                     <span class="vf-dot"></span>
                     <div>
-                        <h3>对话 → 行动的结构化管线</h3>
-                        <p>将对话转化为可执行的计划，实现从灵感到行动、提醒到复盘的自动化闭环。</p>
+                        <h3 data-i18n="pillars.pipeline.title">对话 → 行动的结构化管线</h3>
+                        <p data-i18n="pillars.pipeline.desc">将对话转化为可执行的计划，实现从灵感到行动、提醒到复盘的自动化闭环。</p>
                     </div>
                 </div>
             </div>
 
-            <div class="product-card">
-                <h3>下一代 AI 关系的底层框架</h3>
+           <div class="product-card">
+                <h3 data-i18n="pillars.card.title">下一代 AI 关系的底层框架</h3>
+
+                <p data-i18n="pillars.card.desc">
+                    Qkinteq 正在探索一种新的 AI 使用方式：让 AI 成为“与你并肩”的角色，而不是“为你服务”的工具。
+                </p>
+
+                 <p data-i18n="pillars.card.list.title">我们的研究方向包括：</p>
                 <p>
-                    Qkinteq 正在探索一种新的 AI 使用方式：
-                    <br><br>
-                    —— 让 AI 成为“与你并肩”的角色，而不是“为你服务”的工具。
-                    <br><br>
-                    我们的研究方向包括：
-                    <br>· 长期稳定记忆模型  
-                    <br>· 可控人格与统一语气  
-                    <br>· 推进式上下文协作  
-                    <br>· 行动与日程自动生成  
-                    <br>· 用户状态推断与主动协助  
+                    · <span data-i18n="pillars.card.item.1">长期稳定记忆模型</span><br>
+                    · <span data-i18n="pillars.card.item.2">可控人格与统一语气</span><br>
+                    · <span data-i18n="pillars.card.item.3">推进式上下文协作</span><br>
+                    · <span data-i18n="pillars.card.item.4">行动与日程自动生成</span><br>
+                    · <span data-i18n="pillars.card.item.5">用户状态推断与主动协助</span>
                 </p>
             </div>
+
         </div>
 
     </div>
@@ -295,22 +316,22 @@
     <div class="container">
 
         <div class="section-header">
-            <div class="section-kicker">PROGRESS</div>
-            <h2 class="section-title">项目阶段性成果</h2>
+            <div class="section-kicker" data-i18n="timeline.kicker">PROGRESS</div>
+            <h2 class="section-title" data-i18n="timeline.title">项目阶段性成果</h2>
         </div>
 
         <div class="timeline">
 
             <div class="timeline-item">
                 <div class="dot"></div>
-                <h3>Private Alpha 内测进行中</h3>
-                <p>重点收集用户在日程、关系、生活管理方面的真实使用反馈。</p>
+                <h3 data-i18n="timeline.1.title">Private Alpha 内测进行中</h3>
+                <p data-i18n="timeline.1.desc">重点收集用户在日程、关系、生活管理方面的真实使用反馈。</p>
             </div>
 
             <div class="timeline-item">
                 <div class="dot"></div>
-                <h3>探索 Partner 模块与角色系统</h3>
-                <p>包括恋爱日程、生活规划、陪伴教练等新的交互方式。</p>
+                <h3 data-i18n="timeline.2.title" data-i18n="timeline.2.title">探索 Partner 模块与角色系统</h3>
+                <p data-i18n="timeline.2.desc">包括恋爱日程、生活规划、陪伴教练等新的交互方式。</p>
             </div>
 
         </div>
@@ -334,10 +355,10 @@
             </div>
 
             <div class="footer-links">
-                <a href="index.html">首页</a>
-                <a href="product.html">产品</a>
-                <a href="feature.html">功能亮点</a>
-                <a href="contact.html">联系</a>
+                <a href="index.html" data-i18n="nav.home">首页</a>
+                <a href="product.html" data-i18n="nav.product">产品</a>
+                <a href="feature.html" data-i18n="nav.feature">功能亮点</a>
+                <a href="contact.html" data-i18n="nav.contact">联系</a>
             </div>
         </div>
 
@@ -345,7 +366,7 @@
 
         <div class="footer-bottom">
             <div>© <span id="year"></span> Qkinteq. All rights reserved.</div>
-            <div class="footer-meta">AI Companion Studio · Pre-seed 项目</div>
+            <div class="footer-meta" data-i18n="footer.meta">AI Companion Studio · Pre-seed 项目</div>
         </div>
 
     </div>
@@ -355,3 +376,278 @@
     </script>
 </footer>
 
+<script>
+window.I18N = {
+  zh: {
+    /* ===== NAV ===== */
+    "nav.home": "首页",
+    "nav.product": "产品",
+    "nav.feature": "功能亮点",
+    "nav.contact": "联系",
+    "nav.cta": "加入内测",
+
+    /* ===== HERO ===== */
+    "hero.badge": "AI Companion Studio · 早期项目",
+    "hero.title.1": "为每个人打造",
+    "hero.title.2": "可定制的 AI 陪伴与规划系统",
+    "hero.subtitle":
+      "基于对真实生活决策、情绪连接与长期目标的理解，我们正在构建下一代 AI 伴侣体系——不仅能聊天，更能参与用户生活、结构化日程、提供建议，并在长期关系中持续学习成长。",
+    "hero.btn.product": "查看产品方向",
+    "hero.btn.demo": "预约 Demo / 投资沟通",
+    "hero.stage.label": "当前阶段：",
+    "hero.stage.value":
+      "Pre-seed ｜ Web MVP 验证中 ｜ 欢迎技术合伙人、设计伙伴 & 早期用户交流",
+
+    /* ===== VISION LEFT ===== */
+    "vision.left.title": "重新思考人与 AI 的关系",
+    "vision.left.desc":
+      "我们相信 AI 不应只是回答问题的工具，而应成为一种长期协作、持续理解并与你共同成长的伙伴形式。",
+    "vision.memory": "长期记忆",
+    "vision.memory.desc": "持续学习你的偏好与习惯",
+    "vision.persona": "一致人格",
+    "vision.persona.desc": "稳定的语气与情绪风格",
+    "vision.structure": "结构化协作",
+    "vision.structure.desc": "从灵感到行动的自动化闭环",
+
+    /* ===== VISION RIGHT ===== */
+    "vision.title": "AI 关系将成为一种新的生活方式",
+    "vision.subtitle": "不只是工具，而是一个长期、稳定、可协作的伙伴。",
+    "vision.feature.understand.title": "理解你",
+    "vision.feature.understand.desc":
+      "通过长期互动建立“熟悉感”，让 AI 逐渐形成对你的稳定认知模型。",
+    "vision.feature.accompany.title": "陪伴你",
+    "vision.feature.accompany.desc":
+      "提供一致语气与情绪风格，让体验更像真实关系而非一次性对话。",
+    "vision.feature.assist.title": "协助你",
+    "vision.feature.assist.desc":
+      "把对话转化为结构化计划，让“灵感 → 行动 → 提醒 → 复盘”形成自动循环。",
+    "vision.quote":
+      "AI 不应冷冰冰，而是一种新的连接方式，让人被理解、被支持、被陪伴。",
+
+    /* ===== WHY ===== */
+    "why.1.title": "长期关系，而非一次性对话",
+    "why.1.desc":
+      "当前 AI 大多以「即时问答」为主，缺乏对用户长期偏好、行为模式和情绪的理解。Qkinteq 希望让 AI 真正“记住你”，并在多次互动中不断优化协作方式。",
+    "why.2.title": "结构化执行能力",
+    "why.2.desc":
+      "用户不仅需要答案，更需要真正的帮助：自动记录灵感、跟进计划、生成行动与复盘。我们正在构建能把对话转化为行动的 AI。",
+    "why.3.title": "陪伴与情绪支持",
+    "why.3.desc":
+      "陪伴的关键在于稳定性、一致性和情绪温度。我们探索如何让 AI 更像可信赖的伙伴。",
+
+    /* ===== PILLARS ===== */
+    "pillars.kicker": "CORE PILLARS",
+    "pillars.title": "我们的核心构建方向",
+    "pillars.userModel.title": "用户画像与偏好学习系统",
+    "pillars.userModel.desc":
+      "通过长期互动持续学习用户的偏好、行为模式和情绪特征，建立个性化的认知模型。",
+    "pillars.memory.title": "长期记忆与语境模型",
+    "pillars.memory.desc":
+      "构建稳定的长期记忆系统，让 AI 能够记住历史互动，形成连贯的对话语境。",
+    "pillars.persona.title": "情绪风格保持与一致性",
+    "pillars.persona.desc":
+      "维持一致的语气、情绪风格和人格特征，让 AI 陪伴体验更像真实关系。",
+    "pillars.pipeline.title": "对话 → 行动的结构化管线",
+    "pillars.pipeline.desc":
+      "将对话转化为可执行的计划，实现从灵感到行动、提醒到复盘的自动化闭环。",
+    "pillars.card.title": "下一代 AI 关系的底层框架",
+    "pillars.card.desc":
+      "Qkinteq 正在探索一种新的 AI 使用方式：让 AI 成为“与你并肩”的角色，而不是“为你服务”的工具。",
+      /* ===== PILLARS CARD ===== */
+"pillars.card.list.title":
+  "我们的研究方向包括：",
+
+"pillars.card.item.1":
+  "长期稳定记忆模型",
+
+"pillars.card.item.2":
+  "可控人格与统一语气",
+
+"pillars.card.item.3":
+  "推进式上下文协作",
+
+"pillars.card.item.4":
+  "行动与日程自动生成",
+
+"pillars.card.item.5":
+  "用户状态推断与主动协助",
+
+    /* ===== TIMELINE ===== */
+    "timeline.kicker": "PROGRESS",
+    "timeline.title": "项目阶段性成果",
+    "timeline.1.title": "Private Alpha 内测进行中",
+    "timeline.1.desc":
+      "重点收集用户在日程、关系、生活管理方面的真实使用反馈。",
+    "timeline.2.title": "探索 Partner 模块与角色系统",
+    "timeline.2.desc":
+      "包括恋爱日程、生活规划、陪伴教练等新的交互方式。",
+
+    /* ===== FOOTER ===== */
+    "footer.meta": "AI Companion Studio · Pre-seed 项目"
+  },
+
+en: {
+  /* ===== NAV ===== */
+  "nav.home": "Home",
+  "nav.product": "Product",
+  "nav.feature": "Key Features",
+  "nav.contact": "Contact",
+  "nav.cta": "Join Private Alpha",
+
+  /* ===== HERO ===== */
+  "hero.badge": "AI Companion Studio · Early-stage Project",
+
+  "hero.title.1": "Building for Everyone",
+  "hero.title.2": "Customizable AI Companionship and Planning Systems",
+
+  "hero.subtitle":
+    "Grounded in an understanding of real-life decision-making, emotional connection, and long-term goals, we are building the next generation of AI companion systems — not only capable of conversation, but also able to participate in users’ lives, structure schedules, provide actionable guidance, and continuously learn and evolve within long-term relationships.",
+
+  "hero.btn.product": "View Product Direction",
+  "hero.btn.demo": "Schedule Demo / Investment Discussion",
+
+  "hero.stage.label": "Current Stage:",
+  "hero.stage.value":
+    "Pre-seed ｜ Web MVP under validation ｜ Open to technical co-founders, design partners, and early users",
+
+  /* ===== VISION LEFT ===== */
+  "vision.left.title": "Rethinking the Relationship Between Humans and AI",
+
+  "vision.left.desc":
+    "We believe AI should not exist solely as a tool for answering questions, but rather as a form of long-term collaboration — one that continuously understands you and grows alongside you.",
+
+  "vision.memory": "Long-term Memory",
+  "vision.memory.desc": "Continuously learning your preferences and habits",
+
+  "vision.persona": "Consistent Persona",
+  "vision.persona.desc": "Stable tone, personality, and emotional style",
+
+  "vision.structure": "Structured Collaboration",
+  "vision.structure.desc": "An automated closed loop from inspiration to action",
+
+  /* ===== VISION RIGHT ===== */
+  "vision.title": "AI Relationships Will Become a New Way of Living",
+
+  "vision.subtitle":
+    "Not merely tools, but long-term, stable, and collaborative partners.",
+
+  "vision.feature.understand.title": "Understand You",
+  "vision.feature.understand.desc":
+    "Through long-term interaction, AI builds familiarity and gradually forms a stable cognitive model of you.",
+
+  "vision.feature.accompany.title": "Accompany You",
+  "vision.feature.accompany.desc":
+    "By maintaining a consistent tone and emotional style, the experience feels closer to a real relationship rather than a one-off interaction.",
+
+  "vision.feature.assist.title": "Support You",
+  "vision.feature.assist.desc":
+    "Transforming conversations into structured plans, enabling an automated loop from inspiration to action, reminders, and reflection.",
+
+  "vision.quote":
+  "AI should not feel cold or distant,<br>" +
+  "but become a new form of connection —<br>" +
+  "one in which people feel understood, supported, and accompanied.",
+
+  /* ===== WHY ===== */
+  "why.1.title": "Long-term Relationships, Not One-off Conversations",
+  "why.1.desc":
+    "Most AI systems today focus on immediate question-and-answer interactions and lack an understanding of users’ long-term preferences, behavioral patterns, and emotional states. Qkinteq aims to enable AI to truly ‘remember you’ and continuously refine collaboration through repeated interactions.",
+
+  "why.2.title": "Structured Execution Capability",
+  "why.2.desc":
+    "Users do not only need answers; they need tangible support — automatically capturing ideas, following up on plans, generating actions, and enabling reflection. We are building AI that can translate conversations into execution.",
+
+  "why.3.title": "Companionship and Emotional Support",
+  "why.3.desc":
+    "True companionship depends on stability, consistency, and emotional warmth. We are exploring how AI can become a presence users can genuinely trust.",
+
+  /* ===== PILLARS ===== */
+"pillars.kicker": "CORE PILLARS",
+"pillars.title": "Our Core Areas of Construction",
+
+"pillars.userModel.title": "User Modeling and Preference Learning",
+"pillars.userModel.desc":
+  "Through long-term interaction, continuously learning users’ preferences, behavioral patterns, and emotional traits to build personalized cognitive models.",
+
+"pillars.memory.title": "Long-term Memory and Context Modeling",
+"pillars.memory.desc":
+  "Building stable long-term memory systems that allow AI to retain historical interactions and maintain coherent conversational context.",
+
+"pillars.persona.title": "Emotional Style Consistency",
+"pillars.persona.desc":
+  "Maintaining consistent tone, emotional style, and personality traits so the AI companionship experience feels closer to a real relationship.",
+
+"pillars.pipeline.title": "Conversation-to-Action Structured Pipeline",
+"pillars.pipeline.desc":
+  "Transforming dialogue into executable plans, forming an automated closed loop from inspiration to action, reminders, and reflection.",
+
+/* ===== PILLARS CARD ===== */
+"pillars.card.title":
+  "Foundational Framework for Next-generation AI Relationships",
+
+"pillars.card.desc":
+  "Qkinteq is exploring a new way of using AI — positioning AI as a role that works alongside you, rather than a tool designed merely to serve you.",
+
+"pillars.card.list.title":
+  "Our research directions include:",
+
+"pillars.card.item.1":
+  "Long-term, stable memory models",
+
+"pillars.card.item.2":
+  "Controllable personas with consistent tone",
+
+"pillars.card.item.3":
+  "Progressive, context-driven collaboration",
+
+"pillars.card.item.4":
+  "Automatic generation of actions and schedules",
+
+"pillars.card.item.5":
+  "User state inference and proactive assistance",
+
+  /* ===== TIMELINE ===== */
+  "timeline.kicker": "PROGRESS",
+  "timeline.title": "Project Milestones",
+
+  "timeline.1.title": "Private Alpha Currently Underway",
+  "timeline.1.desc":
+    "Focused on collecting real-world user feedback related to scheduling, relationships, and daily life management.",
+
+  "timeline.2.title": "Exploring Partner Modules and Role-based Systems",
+  "timeline.2.desc":
+    "Including interaction models such as relationship planning, life organization, and companionship coaching.",
+
+  /* ===== FOOTER ===== */
+  "footer.meta": "AI Companion Studio · Pre-seed Project"
+}
+
+};
+</script>
+
+<script>
+let currentLang = "zh";
+
+function applyLang(lang) {
+  document.documentElement.lang = lang === "zh" ? "zh-CN" : "en";
+
+  document.querySelectorAll("[data-i18n]").forEach(el => {
+    const key = el.dataset.i18n;
+    if (window.I18N?.[lang]?.[key]) {
+      el.innerHTML = window.I18N[lang][key];
+    }
+  });
+
+  // ⭐ 同步更新语言按钮文字
+  const langBtn = document.getElementById("langToggle");
+  if (langBtn) {
+    langBtn.textContent = lang === "zh" ? "EN" : "中文";
+  }
+}
+
+
+function toggleLang() {
+  currentLang = currentLang === "zh" ? "en" : "zh";
+  applyLang(currentLang);
+}
+</script>
