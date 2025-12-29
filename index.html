@@ -96,27 +96,52 @@
                     </div>
                     <div class="hero-avatar-text">
                         <div class="name">LuvLuv Daily</div>
-                        <div class="role">AI 恋爱日程 · MVP</div>
+                        <div class="role" data-i18n="hero.role">AI 恋爱日程 · MVP</div>
+
                     </div>
                 </div>
                 <div class="hero-pill">Private Alpha</div>
             </div>
 
             <div class="hero-chat">
-                <div class="chat-bubble chat-user">
-                    <div class="chat-label">User · 今天</div>
-                    想安排一个轻松的周末约会，有什么不累又有仪式感的方案？
-                </div>
 
-                <div class="chat-bubble chat-ai">
-                    <div class="chat-label">LuvLuv Daily · AI 角色</div>
-                    已根据你的偏好准备了 3 套行程：<br />
-                    · 电影 + 甜品店<br />
-                    · 公园野餐 + 夜间散步<br />
-                    · 家庭料理日 + 惊喜清单<br />
-                    需要我同步生成备忘录和提醒吗？
-                </div>
-            </div>
+  <!-- AI · 第一条（共情 + 选择） -->
+  <div class="chat-bubble chat-ai">
+    <div class="chat-label">LuvLuv Daily · AI</div>
+    <span data-i18n="hero.chat.ai1">
+      刚写完作业是不是脑子有点空？<br />
+      要不要我陪你偷懒 10 分钟，<br />
+      或者我们去买杯咖啡再回来。
+    </span>
+  </div>
+
+  <!-- AI · 第二条（承诺陪伴） -->
+  <div class="chat-bubble chat-ai">
+    <span data-i18n="hero.chat.ai2">
+      如果你想继续，我也可以陪你把后面的搞定。
+    </span>
+  </div>
+
+  <!-- 用户回复 -->
+  <div class="chat-bubble chat-user">
+    <div class="chat-label">User</div>
+    <span data-i18n="hero.chat.user">
+      有点累，想出去走走。
+    </span>
+  </div>
+
+  <!-- AI · 回应 -->
+  <div class="chat-bubble chat-ai">
+    <div class="chat-label">LuvLuv Daily · AI</div>
+    <span data-i18n="hero.chat.ai3">
+      好，那我们就不勉强。<br />
+      走 15 分钟，买杯咖啡，<br />
+      当作刚刚那段努力的小奖励。
+    </span>
+  </div>
+
+</div>
+
         </div>
 
     </div>
@@ -388,6 +413,7 @@ window.I18N = {
     "nav.cta": "加入内测",
 
     /* ===== HERO ===== */
+    "hero.role": "AI 恋爱日程 · MVP",
     "hero.badge": "AI Companion Studio · 早期项目",
     "hero.title.1": "为每个人打造",
     "hero.title.2": "可定制的 AI 陪伴与规划系统",
@@ -399,6 +425,14 @@ window.I18N = {
     "hero.stage.value":
       "Pre-seed ｜ Web MVP 验证中 ｜ 欢迎技术合伙人、设计伙伴 & 早期用户交流",
 
+    "hero.chat.ai1":
+      "刚写完作业是不是脑子有点空？<br />要不要我陪你偷懒 10 分钟，<br />或者我们去买杯咖啡再回来。",
+    "hero.chat.ai2":
+      "如果你想继续，我也可以陪你把后面的搞定。",
+    "hero.chat.user":
+      "有点累，想出去走走。",
+    "hero.chat.ai3":
+      "好，那我们就不勉强。<br />走 15 分钟，买杯咖啡，<br />当作刚刚那段努力的小奖励。",
     /* ===== VISION LEFT ===== */
     "vision.left.title": "重新思考人与 AI 的关系",
     "vision.left.desc":
@@ -497,6 +531,7 @@ en: {
   "nav.cta": "Join Private Alpha",
 
   /* ===== HERO ===== */
+  "hero.role": "AI Relationship Planning · MVP",
   "hero.badge": "AI Companion Studio · Early-stage Project",
 
   "hero.title.1": "Building for Everyone",
@@ -511,6 +546,17 @@ en: {
   "hero.stage.label": "Current Stage:",
   "hero.stage.value":
     "Pre-seed ｜ Web MVP under validation ｜ Open to technical co-founders, design partners, and early users",
+  "hero.chat.ai1":
+  "Just finished your work and feeling a bit mentally empty?<br />Want me to take a 10-minute break with you,<br />or we can grab a coffee and come back?",
+
+"hero.chat.ai2":
+  "If you feel like continuing, I can stay with you through the rest.",
+
+"hero.chat.user":
+  "I’m a bit tired. I just want to step outside.",
+
+"hero.chat.ai3":
+  "Alright, no need to push yourself.<br />Let’s walk for 15 minutes and grab a coffee — a small reward for the effort you just made.",
 
   /* ===== VISION LEFT ===== */
   "vision.left.title": "Rethinking the Relationship Between Humans and AI",
@@ -633,7 +679,7 @@ en: {
    ====================== */
 
 // 1. 读取已保存语言（如果有）
-let currentLang = localStorage.getItem("qkinteq_lang") || "zh";
+let currentLang = localStorage.getItem("qkinteq_lang") || "en";
 
 // 2. 应用语言
 function applyLang(lang) {
